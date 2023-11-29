@@ -21,7 +21,11 @@ export default function RootLayout({
         "relative h-full font-sans antialiased",
         inter.className
       )}>
-        {children}
+        <main className="relative flex flex-col min-h-screen">
+          <div className="flex-grow flex-1">
+            {children}
+          </div>
+        </main>
       </body>
     </html>
   )
