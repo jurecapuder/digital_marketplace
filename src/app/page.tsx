@@ -70,6 +70,10 @@ export default function Home() {
                   <h3 className="text-base font-medium text-gray-900">
                     {perk.name}
                   </h3>
+
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    {perk.description}
+                  </p>
                 </div>
               </div>
             ))}
