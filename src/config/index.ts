@@ -20,4 +20,25 @@ export const PRODUCT_CATEGORIES = [
       },
     ]
   },
+  {
+    label: "Icons",
+    value: "icons" as const,
+    featured: [
+      {
+        name: "Favorite Icon Picks",
+        href: "#",
+        imageSrc: "nav/icons/picks.jpg"
+      },
+      {
+        name: "New arrivals",
+        href: "#",
+        imageSrc: "nav/icons/new.jpg"
+      },
+      {
+        name: "Bestsellers Icons",
+        href: "#",
+        imageSrc: "nav/icons/bestsellers.jpg"
+      },
+    ]
+  },
 ]
