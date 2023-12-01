@@ -1,3 +1,4 @@
+import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 
 const NavBar = () => {
@@ -8,6 +9,12 @@ const NavBar = () => {
           <div className="border-b border-gray-200">
             <div className="flex h-16 items-center">
               {/* TODO: Mobile nav */}
+
+              <div className="ml-4 flex lg:ml-0">
+                <Link href="/">
+                  
+                </Link>
+              </div>
             </div>
           </div>
         </MaxWidthWrapper>
