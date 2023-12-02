@@ -9,6 +9,8 @@ const NavItems = () => {
     null | number
   >(null);
 
+  const isAnyOpen = activeIndex !== null;
+
   return (
     <div className="flex gap-4 h-full">
       {PRODUCT_CATEGORIES.map((category, i) => {
