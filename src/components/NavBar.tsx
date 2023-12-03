@@ -47,7 +47,7 @@ const NavBar = () => {
 
                   {user ? (
                     <>
-                      
+
                     </>
                   ) : (
                     <Link
@@ -59,6 +59,13 @@ const NavBar = () => {
                       Create account
                     </Link>
                   )}
+
+                  {user ? (
+                    <span
+                      className="h-6 w-px bg-gray-200"
+                      aria-hidden="true"
+                    />
+                  ) : null}
                 </div>
               </div>
             </div>
