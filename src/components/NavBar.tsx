@@ -2,6 +2,7 @@ import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { Icons } from "./Icons";
 import NavItems from "./NavItems";
+import { buttonVariants } from "./ui/button";
 
 const NavBar = () => {
   const user = null;
@@ -27,7 +28,14 @@ const NavBar = () => {
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   {user ? null : (
-                    <Link href="/sign-in">Sign <input type="button" value="" /></Link>
+                    <Link
+                      href="/sign-in"
+                      className={buttonVariants({
+                        variant: "ghost"
+                      })}
+                    >
+                      Sign in
+                    </Link>
                   )}
                 </div>
               </div>
