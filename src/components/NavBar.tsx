@@ -44,6 +44,21 @@ const NavBar = () => {
                       aria-hidden="true"
                     />
                   )}
+
+                  {user ? (
+                    <>
+                      
+                    </>
+                  ) : (
+                    <Link
+                      href="/sign-up"
+                      className={buttonVariants({
+                        variant: "ghost"
+                      })}
+                    >
+                      Create account
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
