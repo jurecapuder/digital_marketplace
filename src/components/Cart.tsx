@@ -5,7 +5,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui
 import { Separator } from "./ui/separator";
 
 const Cart = () => {
-  const itemCount = 0;
+  const itemCount = 1;
 
   return (
     <Sheet>
@@ -45,6 +45,16 @@ const Cart = () => {
 
                   <span>
                     Free
+                  </span>
+                </div>
+
+                <div className="flex">
+                  <span className="flex-1">
+                    Transaction Fee
+                  </span>
+
+                  <span>
+                    1
                   </span>
                 </div>
               </div>
