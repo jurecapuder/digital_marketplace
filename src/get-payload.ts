@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import path from "path";
+import type { InitOptions } from "payload/config";
 
 dotenv.config({
   path: path.resolve(__dirname, "../.env")
@@ -14,6 +15,12 @@ if (!cached) {
   };
 }
 
-export const getPayloadClient = async () => {
+interface Args {
+  initOptions?: Partial<InitOptions>;
+}
 
+export const getPayloadClient = async ({
+  initOptions
+}: Args = {}) => {
+  
 }
