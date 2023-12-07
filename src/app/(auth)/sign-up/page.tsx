@@ -1,5 +1,6 @@
 import { Icons } from "@/components/Icons";
 import { buttonVariants } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const Page = () => {
@@ -15,10 +16,12 @@ const Page = () => {
             </h1>
 
             <Link
-            className={buttonVariants({ variant: "link" })} 
+            className={buttonVariants({ variant: "link", className: "gap-1.5" })} 
               href="/sign-in"
             >
               Aready have an account? Sign-in
+
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
