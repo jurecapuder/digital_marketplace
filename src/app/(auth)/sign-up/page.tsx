@@ -1,4 +1,6 @@
 import { Icons } from "@/components/Icons";
+import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
 
 const Page = () => {
   return (
@@ -11,6 +13,13 @@ const Page = () => {
             <h1 className="text-2xl font-bold">
               Create an account
             </h1>
+
+            <Link
+            className={buttonVariants({ variant: "link" })} 
+              href="/sign-in"
+            >
+              Aready have an account? Sign-in
+            </Link>
           </div>
         </div>
       </div>
