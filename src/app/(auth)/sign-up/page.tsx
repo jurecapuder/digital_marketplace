@@ -45,6 +45,19 @@ const Page = () => {
                     placeholder="you@example.com"
                   /> 
                 </div>
+
+                <div className="grid gap-1 py-2">
+                  <Label htmlFor="password">
+                    Password
+                  </Label>
+
+                  <Input
+                    className={cn({
+                      "focus-visible:ring-red-500": true
+                    })}
+                    placeholder="Password"
+                  /> 
+                </div>
               </div>
             </form>
           </div>
