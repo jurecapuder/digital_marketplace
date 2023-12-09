@@ -7,8 +7,29 @@ import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import { z } from "zod";
 
 const Page = () => {
+  const AuthCredentialsValidator = z.object({
+    email: z.string().email(),
+    password: z
+      .string()
+      .min(8, {
+        message: "Password must be at least 8 characters long"
+      }),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: {errors}
+  } = useForm({
+    resolver: zodResolver(AuthCredentialsValidator),
+  });
+
   return (
     <>
       <div className="container relative fdlex pt-20 flex-col items-center justify-center lg:px-0">
@@ -31,7 +52,7 @@ const Page = () => {
           </div>
 
           <div className="grid gap-6">
-            <form onSubmit={}>
+            <form>
               <div className="grid gap-2">
                 <div className="grid gap-1 py-2">
                   <Label htmlFor="email">
