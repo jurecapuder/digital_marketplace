@@ -22,11 +22,13 @@ const Page = () => {
       }),
   });
 
+  type TAuthCredentialsValidator = z.infer<typeof AuthCredentialsValidator>;
+
   const {
     register,
     handleSubmit,
     formState: {errors}
-  } = useForm({
+  } = useForm<TAuthCredentialsValidator>({
     resolver: zodResolver(AuthCredentialsValidator),
   });
 
