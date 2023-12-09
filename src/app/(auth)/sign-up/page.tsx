@@ -62,6 +62,7 @@ const Page = () => {
                   </Label>
 
                   <Input
+                    {...register("email")}
                     className={cn({
                       "focus-visible:ring-red-500": true
                     })}
@@ -75,6 +76,7 @@ const Page = () => {
                   </Label>
 
                   <Input
+                    {...register("password")}
                     className={cn({
                       "focus-visible:ring-red-500": true
                     })}
