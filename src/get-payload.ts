@@ -38,14 +38,14 @@ export const getPayloadClient = async ({
       local: initOptions?.express ? false : true,
       ...(initOptions || {})
     });
-
-    try {
-      cached.client = await cached.promise;
-    } catch (e: unknown) {
-      cached.promise = null;
-      throw e;
-    }
-
-    return cached.client;
   }
+
+  try {
+    cached.client = await cached.promise;
+  } catch (e: unknown) {
+    cached.promise = null;
+    throw e;
+  }
+
+  return cached.client;
 }
