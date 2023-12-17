@@ -75,6 +75,7 @@ const Page = () => {
 
                   <Input
                     {...register("password")}
+                    type="password"
                     className={cn({
                       "focus-visible:ring-red-500": errors.password
                     })}
