@@ -44,5 +44,16 @@ export const authRouter = router({
       const { token } = input;
 
       const payload = await getPayloadClient();
+
+      const isVerified = await payload.verifyEmail({
+        collection: "users",
+        token
+      })
+
+      if (!isVerified) throw new TRPCError({ code: "UNAUTHORIZED" });
+
+      return {
+        success: true
+      }
     })
 })
