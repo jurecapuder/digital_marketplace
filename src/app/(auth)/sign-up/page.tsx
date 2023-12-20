@@ -14,6 +14,7 @@ import { AuthCredentialsValidator, TAuthCredentialsValidator } from "@/lib/valid
 import { trpc } from "@/trpc/client";
 import { toast } from "sonner";
 import { ZodError } from "zod";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
   const {
@@ -23,6 +24,8 @@ const Page = () => {
   } = useForm<TAuthCredentialsValidator>({
     resolver: zodResolver(AuthCredentialsValidator),
   });
+
+  const router = useRouter();
 
   const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
     onError: (error) => {
@@ -37,6 +40,12 @@ const Page = () => {
 
         return;
       }
+
+      toast.error("Something went wrong. Please try again later.")
+    },
+    onSuccess: ({ sentToEmail }) => {
+      toast.success(`Verification email sent to ${sentToEmail}.`)
+      router.push("/verify-email?to=" + sentToEmail);
     }
   });
 
