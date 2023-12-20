@@ -88,7 +88,13 @@ const Page = () => {
                       "focus-visible:ring-red-500": errors.email
                     })}
                     placeholder="you@example.com"
-                  /> 
+                  />
+
+                  {errors?.email && (
+                    <p className="text-sm text-red-500">
+                      {errors.email.message}
+                    </p>
+                  )}
                 </div>
 
                 <div className="grid gap-1 py-2">
@@ -104,6 +110,12 @@ const Page = () => {
                     })}
                     placeholder="Password"
                   /> 
+
+                  {errors?.password && (
+                    <p className="text-sm text-red-500">
+                      {errors.password.message}
+                    </p>
+                  )}  
                 </div>
 
                 <Button>
