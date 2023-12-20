@@ -61,14 +61,14 @@ const Page = () => {
             <Icons.logo className="h-20 w-20" />
 
             <h1 className="text-2xl font-bold">
-              Create an account
+              Sign in to your account
             </h1>
 
             <Link
             className={buttonVariants({ variant: "link", className: "gap-1.5" })} 
-              href="/sign-in"
+              href="/sign-up"
             >
-              Aready have an account? Sign-in
+              Don&apos;t have an account? Sign up
 
               <ArrowRight className="h-4 w-4" />
             </Link>
