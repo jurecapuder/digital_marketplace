@@ -28,10 +28,14 @@ const Page = () => {
     onError: (error) => {
       if (error.data?.code === "CONFLICT") {
         toast.error("This email is already in use. Sign in instead?")
+
+        return;
       }
       
       if (error instanceof ZodError) {
         toast.error(error.issues[0].message)
+
+        return;
       }
     }
   });
