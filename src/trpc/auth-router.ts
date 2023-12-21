@@ -65,7 +65,13 @@ export const authRouter = router({
         const payload = await getPayloadClient();
 
         try {
-          await payload.login({})
+          await payload.login({
+            collection: "users",
+            data: {
+              email,
+              password
+            }
+          })
         } catch (error) {
           
         }
