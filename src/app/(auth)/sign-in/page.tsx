@@ -14,9 +14,13 @@ import { AuthCredentialsValidator, TAuthCredentialsValidator } from "@/lib/valid
 import { trpc } from "@/trpc/client";
 import { toast } from "sonner";
 import { ZodError } from "zod";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const Page = () => {
+  const searchParams = useSearchParams();
+
+  const isSeller = searchParams.get("as") === "seller";
+
   const {
     register,
     handleSubmit,
