@@ -55,5 +55,11 @@ export const authRouter = router({
       return {
         success: true
       }
+    }),
+
+    signIn: publicProcedure
+      .input(AuthCredentialsValidator)
+      .mutation(({ input }) => {
+        const { email, password } = input;
     })
 })
