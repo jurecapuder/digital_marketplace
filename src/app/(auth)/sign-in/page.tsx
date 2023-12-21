@@ -21,6 +21,8 @@ const Page = () => {
 
   const isSeller = searchParams.get("as") === "seller";
 
+  const origin = searchParams.get("origin");
+
   const {
     register,
     handleSubmit,
