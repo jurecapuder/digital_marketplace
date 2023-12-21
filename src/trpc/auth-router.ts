@@ -62,7 +62,7 @@ export const authRouter = router({
       .mutation(async ({ input, ctx }) => {
         const { email, password } = input;
         
-        const { req } = ctx;
+        const { res } = ctx;
 
         const payload = await getPayloadClient();
 
@@ -73,7 +73,7 @@ export const authRouter = router({
               email,
               password
             },
-            req
+            res
           })
         } catch (error) {
           
