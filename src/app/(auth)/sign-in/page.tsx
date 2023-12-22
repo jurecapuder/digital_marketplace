@@ -34,24 +34,10 @@ const Page = () => {
   const router = useRouter();
 
   const { mutate, isLoading } = trpc.auth.signIn.useMutation({
-    onError: (error) => {
-      if (error.data?.code === "CONFLICT") {
-        toast.error("This email is already in use. Sign in instead?")
+    onSuccess: () => {
+      toast.success("Signed in successfully");
 
-        return;
-      }
-      
-      if (error instanceof ZodError) {
-        toast.error(error.issues[0].message)
-
-        return;
-      }
-
-      toast.error("Something went wrong. Please try again later.")
-    },
-    onSuccess: ({ sentToEmail }) => {
-      toast.success(`Verification email sent to ${sentToEmail}.`)
-      router.push("/verify-email?to=" + sentToEmail);
+      router.refresh();
     }
   });
 
