@@ -50,6 +50,8 @@ const Page = () => {
 
         return;
       }
+
+      router.push("/");
     }
   });
 
