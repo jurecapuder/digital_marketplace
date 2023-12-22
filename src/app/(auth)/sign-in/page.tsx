@@ -33,7 +33,7 @@ const Page = () => {
 
   const router = useRouter();
 
-  const { mutate, signIn, isLoading } = trpc.auth.signIn.useMutation({
+  const { mutate: signIn, isLoading } = trpc.auth.signIn.useMutation({
     onSuccess: () => {
       toast.success("Signed in successfully");
 
