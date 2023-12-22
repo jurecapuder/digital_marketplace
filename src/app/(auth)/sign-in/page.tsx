@@ -33,7 +33,7 @@ const Page = () => {
 
   const router = useRouter();
 
-  const { mutate, isLoading } = trpc.auth.signIn.useMutation({
+  const { mutate, signIn, isLoading } = trpc.auth.signIn.useMutation({
     onSuccess: () => {
       toast.success("Signed in successfully");
 
@@ -61,7 +61,7 @@ const Page = () => {
   });
 
   const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
-    mutate({ email, password });
+    signIn({ email, password });
   }
 
   return (
