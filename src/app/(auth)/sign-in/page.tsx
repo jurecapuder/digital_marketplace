@@ -42,6 +42,10 @@ const Page = () => {
       if (origin) {
         router.push(`${origin}`);
       }
+
+      if (isSeller) {
+        router.push("/sell");
+      }
     }
   });
 
