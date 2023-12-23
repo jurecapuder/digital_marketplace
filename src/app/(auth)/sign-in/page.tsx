@@ -23,6 +23,14 @@ const Page = () => {
 
   const origin = searchParams.get("origin");
 
+  const continueAsSeller = () => {
+    router.push("?as=seller");
+  };
+
+  const continueAsBuyer = () => {
+    router.replace("?as=buyer", undefined);
+  }
+
   const {
     register,
     handleSubmit,
