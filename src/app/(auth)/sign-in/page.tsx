@@ -82,7 +82,9 @@ const Page = () => {
           <div className="flex flex-col items-center space-y-2 text-center">
             <Icons.logo className="h-20 w-20" />
 
-            <h1 className="text-2xl font-bold">Sign in to your account</h1>
+            <h1 className="text-2xl font-bold">
+              Sign in to your {isSeller ? "seller" : ""} account
+            </h1>
 
             <Link
               className={buttonVariants({
