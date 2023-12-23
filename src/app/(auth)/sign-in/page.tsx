@@ -10,7 +10,10 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { AuthCredentialsValidator, TAuthCredentialsValidator } from "@/lib/validators/account-credantials-validator";
+import {
+  AuthCredentialsValidator,
+  TAuthCredentialsValidator,
+} from "@/lib/validators/account-credantials-validator";
 import { trpc } from "@/trpc/client";
 import { toast } from "sonner";
 import { ZodError } from "zod";
@@ -29,12 +32,12 @@ const Page = () => {
 
   const continueAsBuyer = () => {
     router.replace("?as=buyer", undefined);
-  }
+  };
 
   const {
     register,
     handleSubmit,
-    formState: {errors}
+    formState: { errors },
   } = useForm<TAuthCredentialsValidator>({
     resolver: zodResolver(AuthCredentialsValidator),
   });
@@ -65,12 +68,12 @@ const Page = () => {
       if (error.data?.code === "UNAUTHORIZED") {
         toast.error("Invalid email or password");
       }
-    }
+    },
   });
 
   const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
     signIn({ email, password });
-  }
+  };
 
   return (
     <>
@@ -79,16 +82,16 @@ const Page = () => {
           <div className="flex flex-col items-center space-y-2 text-center">
             <Icons.logo className="h-20 w-20" />
 
-            <h1 className="text-2xl font-bold">
-              Sign in to your account
-            </h1>
+            <h1 className="text-2xl font-bold">Sign in to your account</h1>
 
             <Link
-            className={buttonVariants({ variant: "link", className: "gap-1.5" })} 
+              className={buttonVariants({
+                variant: "link",
+                className: "gap-1.5",
+              })}
               href="/sign-up"
             >
               Don&apos;t have an account? Sign up
-
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -97,14 +100,12 @@ const Page = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid gap-2">
                 <div className="grid gap-1 py-2">
-                  <Label htmlFor="email">
-                    Email
-                  </Label>
+                  <Label htmlFor="email">Email</Label>
 
                   <Input
                     {...register("email")}
                     className={cn({
-                      "focus-visible:ring-red-500": errors.email
+                      "focus-visible:ring-red-500": errors.email,
                     })}
                     placeholder="you@example.com"
                   />
@@ -117,34 +118,33 @@ const Page = () => {
                 </div>
 
                 <div className="grid gap-1 py-2">
-                  <Label htmlFor="password">
-                    Password
-                  </Label>
+                  <Label htmlFor="password">Password</Label>
 
                   <Input
                     {...register("password")}
                     type="password"
                     className={cn({
-                      "focus-visible:ring-red-500": errors.password
+                      "focus-visible:ring-red-500": errors.password,
                     })}
                     placeholder="Password"
-                  /> 
+                  />
 
                   {errors?.password && (
                     <p className="text-sm text-red-500">
                       {errors.password.message}
                     </p>
-                  )}  
+                  )}
                 </div>
 
-                <Button>
-                  Sign in
-                </Button>
+                <Button>Sign in</Button>
               </div>
             </form>
 
             <div className="relative">
-              <div aria-hidden="true" className="absolute inset-0 flex items-center">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 flex items-center"
+              >
                 <span className="w-full border-t" />
               </div>
 
@@ -156,11 +156,19 @@ const Page = () => {
             </div>
 
             {isSeller ? (
-              <Button>
+              <Button
+                onClick={continueAsBuyer}
+                variant="secondary"
+                disabled={isLoading}
+              >
                 Continue as customer
               </Button>
             ) : (
-              <Button>
+              <Button
+                onClick={continueAsSeller}
+                variant="secondary"
+                disabled={isLoading}
+              >
                 Continue as seller
               </Button>
             )}
@@ -168,7 +176,7 @@ const Page = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Page;
