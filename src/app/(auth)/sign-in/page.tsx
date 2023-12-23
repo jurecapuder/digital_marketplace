@@ -146,6 +146,16 @@ const Page = () => {
                 </span>
               </div>
             </div>
+
+            {isSeller ? (
+              <Button>
+                Continue as customer
+              </Button>
+            ) : (
+              <Button>
+                Continue as seller
+              </Button>
+            )}
           </div>
         </div>
       </div>
