@@ -32,7 +32,7 @@ const NavBar = () => {
                     <Link
                       href="/sign-in"
                       className={buttonVariants({
-                        variant: "ghost"
+                        variant: "ghost",
                       })}
                     >
                       Sign in
@@ -40,21 +40,16 @@ const NavBar = () => {
                   )}
 
                   {user ? null : (
-                    <span
-                      className="h-6 w-px bg-gray-200"
-                      aria-hidden="true"
-                    />
+                    <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
                   )}
 
                   {user ? (
-                    <>
-
-                    </>
+                    <></>
                   ) : (
                     <Link
                       href="/sign-up"
                       className={buttonVariants({
-                        variant: "ghost"
+                        variant: "ghost",
                       })}
                     >
                       Create account
@@ -62,10 +57,7 @@ const NavBar = () => {
                   )}
 
                   {user ? (
-                    <span
-                      className="h-6 w-px bg-gray-200"
-                      aria-hidden="true"
-                    />
+                    <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
                   ) : null}
 
                   {user ? null : (
@@ -87,7 +79,7 @@ const NavBar = () => {
         </MaxWidthWrapper>
       </header>
     </div>
-  )
-}
+  );
+};
 
 export default NavBar;
