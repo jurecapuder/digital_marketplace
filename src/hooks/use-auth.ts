@@ -25,4 +25,6 @@ export const useAuth = () => {
       toast.error("Couldn't sign out, please try again.")
     }
   }
+
+  return { signOut };
 }
