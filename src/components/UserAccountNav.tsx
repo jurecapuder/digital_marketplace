@@ -34,6 +34,10 @@ const UserAccountNav = ({ user }: { user: User }) => {
             Seller Dashboard
           </Link>
         </DropdownMenuItem>
+
+        <DropdownMenuItem className="cursor-pointer">
+          Log out
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
