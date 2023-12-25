@@ -6,8 +6,9 @@ import {
 } from "@radix-ui/react-dropdown-menu";
 import { DropdownMenu } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
+import { User } from "../payload-types";
 
-const UserAccountNav = () => {
+const UserAccountNav = ({ user }: { user: User }) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild className="overflow-visible">
