@@ -89,6 +89,18 @@ export const Products: CollectionConfig = {
       admin: {
         hidden: true
       }
+    },
+    {
+      name: "stripeId",
+      access: {
+        create: () => false,
+        read: () => false,
+        update: () => false
+      },
+      type: "text",
+      admin: {
+        hidden: true
+      }
     }
   ]
 };
