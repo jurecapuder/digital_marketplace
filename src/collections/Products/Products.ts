@@ -16,6 +16,12 @@ export const Products: CollectionConfig = {
       admin: {
         condition: () => false
       }
+    },
+    {
+      name: "name",
+      label: "Name",
+      type: "text",
+      required: true,
     }
   ]
 };
