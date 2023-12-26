@@ -101,6 +101,26 @@ export const Products: CollectionConfig = {
       admin: {
         hidden: true
       }
+    },
+    {
+      name: "images",
+      type: "array",
+      label: "Product images",
+      minRows: 1,
+      maxRows: 4,
+      required: true,
+      labels: {
+        singular: "Image",
+        plural: "Images"
+      },
+      fields: [
+        {
+          name: "image",
+          type: "upload",
+          relationTo: "media",
+          required: true,
+        }
+      ]
     }
   ]
 };
