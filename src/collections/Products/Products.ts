@@ -1,3 +1,4 @@
+import { tree } from "next/dist/build/templates/app-page";
 import { PRODUCT_CATEGORIES } from "../../config";
 import { CollectionConfig } from "payload/types";
 
@@ -76,6 +77,18 @@ export const Products: CollectionConfig = {
           value: "denied"
         }
       ]
+    },
+    {
+      name: "priceId",
+      access: {
+        create: () => false,
+        read: () => false,
+        update: () => false
+      },
+      type: "text",
+      admin: {
+        hidden: true
+      }
     }
   ]
 };
