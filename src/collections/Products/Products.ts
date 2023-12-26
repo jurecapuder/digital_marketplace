@@ -7,6 +7,10 @@ export const Products: CollectionConfig = {
   },
   access: {},
   fields: [
-    
+    {
+      name: "user",
+      type: "relationship",
+      relationTo: "users",
+    }
   ]
 };
