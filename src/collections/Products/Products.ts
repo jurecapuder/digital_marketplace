@@ -22,6 +22,11 @@ export const Products: CollectionConfig = {
       label: "Name",
       type: "text",
       required: true,
+    },
+    {
+      name: "description",
+      type: "textarea",
+      label: "Product details"
     }
   ]
 };
