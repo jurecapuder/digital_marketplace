@@ -43,6 +43,14 @@ export const Products: CollectionConfig = {
       type: "select",
       options: PRODUCT_CATEGORIES.map(({ label, value }) => ({ label, value })),
       required: true,
+    },
+    {
+      name: "product_files",
+      label: "Product file(s)",
+      type: "relationship",
+      required: true,
+      relationTo: "product_files",
+      hasMany: false
     }
   ]
 };
