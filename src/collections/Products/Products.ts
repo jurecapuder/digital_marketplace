@@ -27,6 +27,14 @@ export const Products: CollectionConfig = {
       name: "description",
       type: "textarea",
       label: "Product details"
+    },
+    {
+      name: "price",
+      label: "Price in USD",
+      min: 0,
+      max: 1000,
+      type: "number",
+      required: true,
     }
   ]
 };
