@@ -31,6 +31,7 @@ export const Media: CollectionConfig = {
         height: undefined,
         position: "centre"
       },
-    ]
+    ],
+    mimeTypes: ["image/*"]
   }
 }
