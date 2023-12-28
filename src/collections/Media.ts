@@ -5,7 +5,7 @@ export const Media: CollectionConfig = {
   hooks: {
     beforeChange: [
       ({ req, data }) => {
-        
+        return { ...data, user: req.user.id }
       }
     ]
   }
