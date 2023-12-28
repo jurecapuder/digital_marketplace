@@ -1,4 +1,3 @@
-import { tree } from "next/dist/build/templates/app-page";
 import { PRODUCT_CATEGORIES } from "../../config";
 import { CollectionConfig } from "payload/types";
 
