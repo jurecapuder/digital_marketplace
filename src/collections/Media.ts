@@ -8,5 +8,17 @@ export const Media: CollectionConfig = {
         return { ...data, user: req.user.id }
       }
     ]
+  },
+  upload: {
+    staticURL: "/media",
+    staticDir: "media",
+    imageSizes: [
+      {
+        name: "thumbnail",
+        width: 400,
+        height: 300,
+        position: "center"
+      },
+    ]
   }
 }
