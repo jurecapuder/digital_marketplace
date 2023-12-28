@@ -33,5 +33,17 @@ export const Media: CollectionConfig = {
       },
     ],
     mimeTypes: ["image/*"]
-  }
+  },
+  fields: [
+    {
+      name: "user",
+      type: "relationship",
+      relationTo: "users",
+      required: true,
+      hasMany: false,
+      admin: {
+        condition: () => false
+      }
+    }
+  ]
 }
