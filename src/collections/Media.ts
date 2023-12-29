@@ -9,7 +9,9 @@ const isAdminOrHasAcessToImages = (): Access => async ({ req }) => {
   if (user.role === "admin") { return true; }
 
   return {
-    
+    user: {
+      equals: req.user.id
+    }
   }
 };
 
