@@ -20,5 +20,14 @@ export const Orders: CollectionConfig = {
       },
       required: true
     },
+    {
+      name: "user",
+      type: "relationship",
+      admin: {
+        hidden: true
+      },
+      relationTo: "users",
+      required: true
+    }
   ]
 }
