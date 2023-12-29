@@ -32,7 +32,7 @@ export const Media: CollectionConfig = {
         return true;
       }
 
-      return await isAdminOrHasAcessToImages();
+      return await isAdminOrHasAcessToImages()({ req});
     }
   },
   admin: {
