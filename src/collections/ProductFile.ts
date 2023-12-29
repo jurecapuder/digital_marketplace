@@ -47,7 +47,7 @@ export const ProductFiles: CollectionConfig = {
     beforeChange: [addUser]
   },
   access: {
-    read: yourOwnAndPurchased(),
+    read: yourOwnAndPurchased,
   },
   upload: {
     staticURL: "/product_files",
