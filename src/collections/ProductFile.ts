@@ -42,6 +42,8 @@ const yourOwnAndPurchased: Access = async ({ req }) => {
       if (typeof product === "string") return req.payload.logger.error(
         "Search depth not sufficient to find purchase file IDs"
       )
+
+      return typeof product.product_files === "string" ? product.product_files : product.product_files.id;
     })
   })
 };
