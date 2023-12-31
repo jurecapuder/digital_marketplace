@@ -13,9 +13,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   AuthCredentialsValidator,
   TAuthCredentialsValidator,
-} from "@/lib/validators/account-credantials-validator";
+} from "@/lib/validators/account-credentials-validator";
 import { trpc } from "@/trpc/client";
 import { toast } from "sonner";
+
 import { useRouter, useSearchParams } from "next/navigation";
 
 const Page = () => {
