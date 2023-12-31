@@ -10,7 +10,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { AuthCredentialsValidator, TAuthCredentialsValidator } from "@/lib/validators/account-credantials-validator";
+import { AuthCredentialsValidator, TAuthCredentialsValidator } from "@/lib/validators/account-credentials-validator";
 import { trpc } from "@/trpc/client";
 import { toast } from "sonner";
 import { ZodError } from "zod";
