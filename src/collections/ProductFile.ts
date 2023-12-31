@@ -64,7 +64,8 @@ export const ProductFiles: CollectionConfig = {
   },
   access: {
     read: yourOwnAndPurchased,
-    update: ({ req }) => req.user.role === "admin"
+    update: ({ req }) => req.user.role === "admin",
+    delete: ({ req }) => req.user.role === "admin"
   },
   upload: {
     staticURL: "/product_files",
