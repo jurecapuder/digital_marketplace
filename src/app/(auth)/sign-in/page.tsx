@@ -21,6 +21,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 const Page = () => {
   const searchParams = useSearchParams();
+  
+  const router = useRouter();
 
   const isSeller = searchParams.get("as") === "seller";
 
@@ -31,7 +33,7 @@ const Page = () => {
   };
 
   const continueAsBuyer = () => {
-    router.replace("?as=buyer", undefined);
+    router.replace("/sign-in", undefined);
   };
 
   const {
@@ -41,8 +43,6 @@ const Page = () => {
   } = useForm<TAuthCredentialsValidator>({
     resolver: zodResolver(AuthCredentialsValidator),
   });
-
-  const router = useRouter();
 
   const { mutate: signIn, isLoading } = trpc.auth.signIn.useMutation({
     onSuccess: () => {
