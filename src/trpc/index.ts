@@ -17,6 +17,14 @@ export const appRouter = router({
 
     const payload = await getPayloadClient();
 
+    const parsedQueryOpts: Record<string, { equals: string }> = {};
+
+    Object.entries(queryOpts).forEach(([key, value]) => {
+      parsedQueryOpts[key] = {
+        equals: value
+      }
+    });
+
     const { docs } = await payload.find({
       collection: "products",
       where: {
