@@ -25,16 +25,20 @@ export const appRouter = router({
       }
     });
 
+    const page = cursor || 1;
+
     const { docs } = await payload.find({
       collection: "products",
       where: {
         approvedForSale: {
           equals: "approved"
-        }
+        },
+        ...parsedQueryOpts
       },
       sort,
       depth: 1,
-      limit
+      limit,
+      page
     })
   })
 });
