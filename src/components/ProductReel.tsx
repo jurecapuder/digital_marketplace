@@ -1,10 +1,13 @@
+import Link from "next/link";
+
 interface ProductReelProps {
   title: string
   subtitle?: string
+  href?: string
 }
 
 const ProductReel = (props: ProductReelProps) => {
-  const { title, subtitle } = props;
+  const { title, subtitle, href } = props;
 
   return (
     <section className="py-12">
@@ -22,6 +25,16 @@ const ProductReel = (props: ProductReelProps) => {
             null
           )}
         </div>
+
+        {href ? (
+          <Link href={href}>
+            Shop the collection {" "}
+
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
+        ) : (
+          null
+        )}
       </div>
     </section>
   )
