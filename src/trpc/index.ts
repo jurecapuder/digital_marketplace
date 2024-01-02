@@ -27,7 +27,7 @@ export const appRouter = router({
 
     const page = cursor || 1;
 
-    const { docs } = await payload.find({
+    const { docs: items, hasNextPage, nextPage } = await payload.find({
       collection: "products",
       where: {
         approvedForSale: {
@@ -40,6 +40,11 @@ export const appRouter = router({
       limit,
       page
     })
+
+    return {
+      items,
+      nextPage: hasNextPage ? nextPage : null
+    }
   })
 });
 
