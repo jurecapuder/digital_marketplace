@@ -1,3 +1,5 @@
+"use client";
+
 import { TQueryValidator } from "@/lib/validators/query-validator";
 import { trpc } from "@/trpc/client";
 import Link from "next/link";
