@@ -8,8 +8,24 @@ interface ProductListingProps {
   index: number
 }
 
-const ProductListing = ({  }: ProductListingProps) => {
+const ProductListing = ({ product, index }: ProductListingProps) => {
   const [isVisible, setIsVisible] = useState(false);
+
+  if (!product || !isVisible) {
+    return (
+      <ProductPlaceholder />
+    )
+  }
 };
+
+const ProductPlaceholder = () => {
+  return (
+    <div className="flex flex-col w-full">
+      <div className="relative bg-zinc-100 aspect-square w-full overflow-hidden">
+        
+      </div>
+    </div>
+  )
+}
 
 export default ProductListing;
