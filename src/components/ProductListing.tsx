@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Skeleton } from "./ui/skeleton";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { PRODUCT_CATEGORIES } from "@/config";
 
 interface ProductListingProps {
   product: Product | null
@@ -28,6 +29,8 @@ const ProductListing = ({ product, index }: ProductListingProps) => {
     )
   }
 
+  const label = PRODUCT_CATEGORIES.find(({ value }) => value === product.category)?.label;
+
   if (isVisible && product) {
     return (
       <Link
@@ -41,6 +44,10 @@ const ProductListing = ({ product, index }: ProductListingProps) => {
           <h3 className="mt-4 font-medium text-sm text-gray-700">
             {product.name}
           </h3>
+
+          <p className="mt-10 text-sm text-gray-500">
+            {label}
+          </p>
         </div>
       </Link>
     )
