@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import SwiperType from "swiper";
 import { useState } from "react";
+import { Pagination } from "swiper/modules";
 
 interface ImageSliderProps {
   urls: string[]
@@ -30,6 +31,10 @@ const ImageSlider = ({ urls }: ImageSliderProps) => {
       </div>
 
       <Swiper
+        onSwiper={(swiper) => setSwiper(swiper)}
+        spaceBetween={50}
+        modules={[Pagination]}
+        slidesPerView={1}
         className="h-full w-full"
       >
         {urls.map((url, i) => (
