@@ -6,6 +6,7 @@ import SwiperType from "swiper";
 import { useEffect, useState } from "react";
 import { Pagination } from "swiper/modules";
 import { cn } from "@/lib/utils";
+import { ChevronRight } from "lucide-react";
 
 interface ImageSliderProps {
   urls: string[]
@@ -37,11 +38,22 @@ const ImageSlider = ({ urls }: ImageSliderProps) => {
   return (
     <div className="group relative bg-zinc-100 aspect-square overflow-hidden rounded-xl">
       <div className="absolute z-10 inset-0 opacity-0 group-hover:opacity-100 transition">
-        <button className={cn(activeStyles, "right-3 transition", {
-          [inactiveStyles]: slideConfig.isEnd,
-          "hover:bg-primary-300 text-primary-800 opacity-100": !slideConfig.isEnd
-        })}>
+        <button
+          onClick={(e) => {
+            e.preventDefault()
+            swiper?.slideNext()
+          }}
+          className={cn(activeStyles, "right-3 transition", {
+            [inactiveStyles]: slideConfig.isEnd,
+            "hover:bg-primary-300 text-primary-800 opacity-100": !slideConfig.isEnd
+          })}
+          aria-label="Next image"
+        >
+          <ChevronRight
+            className="h-4 w-4 text-zinc-700"
+          />
 
+          {" "}
         </button>
           
         <button>
