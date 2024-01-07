@@ -5,6 +5,7 @@ import "swiper/css/pagination";
 import SwiperType from "swiper";
 import { useEffect, useState } from "react";
 import { Pagination } from "swiper/modules";
+import { cn } from "@/lib/utils";
 
 interface ImageSliderProps {
   urls: string[]
@@ -36,7 +37,10 @@ const ImageSlider = ({ urls }: ImageSliderProps) => {
   return (
     <div className="group relative bg-zinc-100 aspect-square overflow-hidden rounded-xl">
       <div className="absolute z-10 inset-0 opacity-0 group-hover:opacity-100 transition">
-        <button>
+        <button className={cn(activeStyles, "right-3 transition", {
+          [inactiveStyles]: slideConfig.isEnd,
+          "hover:bg-primary-300 text-primary-800 opacity-100": !slideConfig.isEnd
+        })}>
 
         </button>
           
