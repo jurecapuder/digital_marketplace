@@ -1,4 +1,5 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import Link from "next/link";
 
 interface PageProps {
   params: {
@@ -27,7 +28,18 @@ const Page = ({ params }: PageProps) => {
           {/* Product details */}
           <div className="lg:max-w-lg lg:self-end">
             <ol className="flex items-center space-x-2">
-
+              {BREADCRUMBS.map((breadcrumb, i) => (
+                <li key={breadcrumb.href}>
+                  <div className="flex items-center text-sm">
+                    <Link
+                      href={breadcrumb.href}
+                      className="font-medium text-sm text-muted-foreground hover:text-gray-900"
+                    >
+                      {breadcrumb.name}
+                    </Link>
+                  </div>
+                </li>
+              ))}
             </ol>
           </div>
         </div>
