@@ -20,7 +20,7 @@ const AddToCartButton = () => {
       size="lg"
       className="w-full"
     >
-      Add to cart
+      {isSuccess ? "Added!" : "Add to cart"}
     </Button>
   )
 }
