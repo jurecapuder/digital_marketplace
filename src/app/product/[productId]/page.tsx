@@ -96,6 +96,12 @@ const Page = async ({ params }: PageProps) => {
                   {label}
                 </div>
               </div>
+
+              <div className="mt-4 space-y-6">
+                <p className="text-base text-muted-foreground">
+                  {product.description}
+                </p>
+              </div>
             </section>
           </div>
         </div>
