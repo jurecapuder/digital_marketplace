@@ -1,3 +1,4 @@
+import AddToCartButton from "@/components/AddToCartButton";
 import ImageSlider from "@/components/ImageSlider";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import ProductReel from "@/components/ProductReel";
@@ -130,7 +131,7 @@ const Page = async ({ params }: PageProps) => {
           <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
             <div>
               <div className="mt-10">
-                add to cart
+                <AddToCartButton />
               </div>
 
               <div className="mt-6 text-center">
