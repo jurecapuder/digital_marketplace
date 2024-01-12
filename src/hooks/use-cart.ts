@@ -12,4 +12,6 @@ type CartState = {
   clearCart: () => void
 }
 
-export const useCart = create<CartState>()
+export const useCart = create<CartState>()(
+  
+);
