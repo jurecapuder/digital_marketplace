@@ -1,5 +1,6 @@
 import ImageSlider from "@/components/ImageSlider";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import ProductReel from "@/components/ProductReel";
 import { PRODUCT_CATEGORIES } from "@/config";
 import { getPayloadClient } from "@/get-payload";
 import { formatPrice } from "@/lib/utils";
@@ -148,6 +149,13 @@ const Page = async ({ params }: PageProps) => {
           </div>
         </div>
       </div>
+
+      <ProductReel
+        href="/products"
+        query={{ category: product.category, limit: 4 }}
+        title={`Similar ${label}`}
+        subtitle={`Browse similar high-quality ${label} just like '${product.name}'`}
+      />
     </MaxWidthWrapper>
   )
 }
