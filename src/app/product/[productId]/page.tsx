@@ -2,6 +2,7 @@ import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { PRODUCT_CATEGORIES } from "@/config";
 import { getPayloadClient } from "@/get-payload";
 import { formatPrice } from "@/lib/utils";
+import { Check } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -101,6 +102,15 @@ const Page = async ({ params }: PageProps) => {
                 <p className="text-base text-muted-foreground">
                   {product.description}
                 </p>
+              </div>
+
+              <div className="mt-6 flex items-center">
+                <Check
+                  aria-hidden="true"
+                  className="h-5 w-5 flex-shrink-0 text-green-500"
+                />
+
+                <p className="ml-2 text-sm text-muted-foreground">Eligible for instant delivery</p>
               </div>
             </section>
           </div>
