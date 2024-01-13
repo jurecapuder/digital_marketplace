@@ -7,9 +7,14 @@ import { formatPrice } from "@/lib/utils";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import Image from "next/image";
+import { useCart } from "@/hooks/use-cart";
 
 const Cart = () => {
-  const itemCount = 0;
+  const { items } = useCart();
+
+  const itemCount = items.length;
+
+  const cartTotal = items.reduce((total, { product }) => total + product.price, 0)
 
   const fee = 1;
 
@@ -70,7 +75,7 @@ const Cart = () => {
                   </span>
 
                   <span>
-                    {formatPrice(fee)}
+                    {formatPrice(cartTotal + fee)}
                   </span>
                 </div>
               </div>
