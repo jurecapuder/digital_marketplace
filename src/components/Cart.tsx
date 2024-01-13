@@ -36,7 +36,7 @@ const Cart = () => {
       <SheetContent className="flex w-full flex-col pr-0 sm:max-w-lg">
         <SheetHeader className="space-y-2.5 pr-6">
           <SheetTitle>
-            Cart (0)
+            Cart ({itemCount})
           </SheetTitle>
         </SheetHeader>
 
@@ -45,7 +45,10 @@ const Cart = () => {
             <div className="flex w-full flex-col pr-6">
               <ScrollArea>
                 {items.map(({ product }) => (
-                  <CartItem key={product.id} />
+                  <CartItem
+                    product={product}
+                    key={product.id}
+                  />
                 ))}
               </ScrollArea>
             </div>
