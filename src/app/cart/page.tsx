@@ -2,6 +2,7 @@
 
 import { useCart } from "@/hooks/use-cart";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const Page = () => {
   const { items, removeItem } = useCart();
@@ -16,7 +17,24 @@ const Page = () => {
         <div className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
           <div className={cn("lg:col-span-7", {
             "rounded-lg border-2 border-dashed border-zinc-200 p-12": items.length === 0
-          })}></div>
+          })}>
+            <h2 className="sr-only">
+              Items in your shopping cart.
+            </h2>
+
+            {items.length === 0 ? (
+              <div className="flex h-full flex-col items-center justify-center space-y-1">
+                <div aria-hidden="true" className="relative mb-4 h-40 w-40 text-muted-foreground">
+                  <Image
+                    src="/hippo-empty-cart.png"
+                    fill
+                    loading="eager"
+                    alt="empty shopping cart hippo"
+                  />
+                </div>
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
     </div>
