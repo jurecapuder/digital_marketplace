@@ -1,12 +1,12 @@
 "use client";
 
 import {
+  DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
-import { DropdownMenu } from "./ui/dropdown-menu";
+  DropdownMenuTrigger
+} from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
 import { User } from "../payload-types";
 import Link from "next/link";
