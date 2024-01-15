@@ -1,5 +1,6 @@
 "use client";
 
+import { PRODUCT_CATEGORIES } from "@/config";
 import { useCart } from "@/hooks/use-cart";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -49,6 +50,19 @@ const Page = () => {
                 </p>
               </div>
             ) : null}
+
+            <ul className={cn({
+              "divide-y divide-gray-200 border-b border-t border-gray-200": isMounted && items.length > 0
+            })}>
+              {isMounted && items.map(({ product }) => {
+                const category = PRODUCT_CATEGORIES.find((c) => c.value === product.category)?.label;
+
+                return (
+                  <>
+                  </>
+                )
+              })}
+            </ul>
           </div>
         </div>
       </div>
