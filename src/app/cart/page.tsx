@@ -60,8 +60,13 @@ const Page = () => {
                 const { image } = product.images[0];
 
                 return (
-                  <>
-                  </>
+                  <li key={product.id} className="flxe py-6 sm:py-10">
+                    <div className="flex shrink-0">
+                      <div className="relative h-24 w-24">
+                        
+                      </div>
+                    </div>
+                  </li>
                 )
               })}
             </ul>
