@@ -55,7 +55,9 @@ const Page = () => {
               "divide-y divide-gray-200 border-b border-t border-gray-200": isMounted && items.length > 0
             })}>
               {isMounted && items.map(({ product }) => {
-                const category = PRODUCT_CATEGORIES.find((c) => c.value === product.category)?.label;
+                const label = PRODUCT_CATEGORIES.find((c) => c.value === product.category)?.label;
+
+                const { image } = product.images[0];
 
                 return (
                   <>
