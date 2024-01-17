@@ -2,7 +2,7 @@
 
 import { PRODUCT_CATEGORIES } from "@/config";
 import { useCart } from "@/hooks/use-cart";
-import { cn } from "@/lib/utils";
+import { cn, formatPrice } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -94,6 +94,10 @@ const Page = () => {
                               Category: {label}
                             </p>
                           </div>
+
+                          <p className="mt-1 text-sm font-medium text-gray-900">
+                            {formatPrice(product.price)}
+                          </p>
                         </div>
                       </div>
                     </div>
