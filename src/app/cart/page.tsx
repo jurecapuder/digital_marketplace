@@ -4,6 +4,7 @@ import { PRODUCT_CATEGORIES } from "@/config";
 import { useCart } from "@/hooks/use-cart";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const Page = () => {
@@ -71,6 +72,23 @@ const Page = () => {
                             className="h-full w-full rounded-md object-cover object-center sm:h-48 sm:w-48"
                           />
                         ) : null}
+                      </div>
+                    </div>
+
+                    <div className="ml-4 flex flex-1 flex-col justify-between sm:ml-6">
+                      <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
+                        <div>
+                          <div className="flex justify-between">
+                            <h3 className="text-sm">
+                              <Link
+                                href={`/products/${product.id}`}
+                                className="font-medium text-gray-700 hover:text-gray-800"
+                              >
+                                {product.name}
+                              </Link>
+                            </h3>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </li>
