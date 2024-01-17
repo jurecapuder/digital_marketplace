@@ -88,6 +88,12 @@ const Page = () => {
                               </Link>
                             </h3>
                           </div>
+
+                          <div className="mt-1 flex text-sm">
+                            <p className="text-muted-foreground">
+                              Category: {label}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
