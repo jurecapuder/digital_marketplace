@@ -1,8 +1,10 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { PRODUCT_CATEGORIES } from "@/config";
 import { useCart } from "@/hooks/use-cart";
 import { cn, formatPrice } from "@/lib/utils";
+import { X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -98,6 +100,21 @@ const Page = () => {
                           <p className="mt-1 text-sm font-medium text-gray-900">
                             {formatPrice(product.price)}
                           </p>
+                        </div>
+
+                        <div className="mt-4 sm:mt-0 sm:pr-9 w-20">
+                          <div className="absolute right-0 top-0">
+                            <Button
+                              aria-label="remove product"
+                              onClick={() => removeItem(product.id)}
+                              variant="ghost"  
+                            >
+                              <X
+                                className="h-5 w-5"
+                                aria-hidden="true"
+                              />
+                            </Button>
+                          </div>
                         </div>
                       </div>
                     </div>
