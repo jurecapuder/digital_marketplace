@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PRODUCT_CATEGORIES } from "@/config";
 import { useCart } from "@/hooks/use-cart";
 import { cn, formatPrice } from "@/lib/utils";
-import { Check, X } from "lucide-react";
+import { Check, Loader2, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -17,7 +17,9 @@ const Page = () => {
 
   useEffect(() => {
     setIsMounted(true);
-  }, [])
+  }, []);
+
+  const cartTotal = items.reduce((total, { product }) => total + product.price, 0);
 
   return (
     <div className="bg-white">
@@ -142,6 +144,14 @@ const Page = () => {
               <div className="flex items-center justify-between">
                 <p className="text-sm text-gray-600">
                   Subtotal
+                </p>
+
+                <p className="text-sm font-medium text-gray-900">
+                  {isMounted ? (
+                    formatPrice(cartTotal)
+                  ) : (
+                    <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
+                  )}
                 </p>
               </div>
             </div>
