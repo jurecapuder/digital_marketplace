@@ -137,6 +137,14 @@ const Page = () => {
             <h2 className="text-lg font-medium text-gray-900">
               Order summary
             </h2>
+
+            <div className="mt-6 space-y-4">
+              <div className="flex items-center justify-between">
+                <p className="text-sm text-gray-600">
+                  Subtotal
+                </p>
+              </div>
+            </div>
           </section>
         </div>
       </div>
