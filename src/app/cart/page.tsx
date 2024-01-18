@@ -154,6 +154,14 @@ const Page = () => {
                   )}
                 </p>
               </div>
+
+              <div className="flex items-center justify-between border-t border-gray-300 pt-4">
+                <div className="flex items-center text-sm text-muted-foreground">
+                  <span>
+                    Flat Transaction Fee
+                  </span>
+                </div>
+              </div>
             </div>
           </section>
         </div>
