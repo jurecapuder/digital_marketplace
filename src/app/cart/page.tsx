@@ -21,6 +21,8 @@ const Page = () => {
 
   const cartTotal = items.reduce((total, { product }) => total + product.price, 0);
 
+  const fee = 1;
+
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -160,6 +162,14 @@ const Page = () => {
                   <span>
                     Flat Transaction Fee
                   </span>
+                </div>
+
+                <div className="text-sm font-medium text-gray-900">
+                  {isMounted ? (
+                    formatPrice(fee)
+                  ) : (
+                    <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
+                  )}
                 </div>
               </div>
             </div>
