@@ -187,6 +187,15 @@ const Page = () => {
                 </div>
               </div>
             </div>
+
+            <div className="mt-6">
+              <Button
+                className="w-full"
+                size="lg"
+              >
+                Checkout
+              </Button>
+            </div>
           </section>
         </div>
       </div>
