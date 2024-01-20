@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { privateProcedure, router } from "./trpc";
+import { TRPCError } from "@trpc/server";
 
 export const paymentRouter = router({
   createSession: privateProcedure
@@ -7,6 +8,10 @@ export const paymentRouter = router({
     .mutation(({ ctx, input }) => {
       const { user } = ctx;
 
-      const { productIds } = input;
+      let { productIds } = input;
+
+      if (productIds.length === 0) {
+        throw new TRPCError({ code: "BAD_REQUEST" });
+      }
     })
 })
