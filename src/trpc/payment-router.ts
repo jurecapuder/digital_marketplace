@@ -6,5 +6,7 @@ export const paymentRouter = router({
     .input(z.object({ productIds: z.array(z.string()) }))
     .mutation(({ ctx, input }) => {
       const { user } = ctx;
+
+      const { productIds } = input;
     })
 })
