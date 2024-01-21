@@ -41,6 +41,14 @@ export const paymentRouter = router({
 
       const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
 
+      line_items.push({
+        price: "price_1Ob8D6DtGsivuPQqJuOBzpFw",
+        quantity: 1,
+        adjustable_quantity: {
+          enabled: false
+        }
+      })
+
       try {
         const stripeSession = await stripe.checkout.sessions.create({
           success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderId=${order.id}`,
