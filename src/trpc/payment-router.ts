@@ -16,5 +16,14 @@ export const paymentRouter = router({
       }
 
       const payload = await getPayloadClient();
+
+      const { docs: products } = await payload.find({
+        collection: "products",
+        where: {
+          id: {
+            in: productIds
+          }
+        }
+      })
     })
 })
