@@ -1,4 +1,6 @@
+import { getServerSideUser } from "@/lib/payload-utils";
 import Image from "next/image";
+import { cookies } from "next/headers";
 
 interface PageProps {
   searchParams: {
@@ -6,12 +8,16 @@ interface PageProps {
   };
 }
 
-const ThankYouPage = ({ searchParams }: PageProps) => {
+const ThankYouPage = async ({ searchParams }: PageProps) => {
   const orderId = searchParams.orderId;
+
+  const nextCookies = cookies();
+
+  const { user } = await getServerSideUser(nextCookies);
 
   return (
     <main className="relative lg:min-h-full">
-      <div className="hidden md:block h-80 overflow-hidden lg:absolute lg:h-full lg:w-1/2 lg:pr-4 xl:pr-12">
+      <div className="hidden lg:block h-80 overflow-hidden lg:absolute lg:h-full lg:w-1/2 lg:pr-4 xl:pr-12">
         <Image
           fill
           src="/checkout-thank-you.jpg"
