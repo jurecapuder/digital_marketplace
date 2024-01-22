@@ -1,6 +1,7 @@
 import { getServerSideUser } from "@/lib/payload-utils";
 import Image from "next/image";
 import { cookies } from "next/headers";
+import { getPayloadClient } from "@/get-payload";
 
 interface PageProps {
   searchParams: {
@@ -14,6 +15,20 @@ const ThankYouPage = async ({ searchParams }: PageProps) => {
   const nextCookies = cookies();
 
   const { user } = await getServerSideUser(nextCookies);
+
+  const payload = await getPayloadClient();
+
+  const { docs: orders } = await payload.find({
+    collection: "orders",
+    depth: 2,
+    where: {
+      id: {
+        equals: orderId
+      }
+    }
+  });
+
+  const [ order ] = orders;
 
   return (
     <main className="relative lg:min-h-full">
