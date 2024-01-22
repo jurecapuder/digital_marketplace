@@ -1,6 +1,14 @@
 import Image from "next/image";
 
-const ThankYouPage = () => {
+interface PageProps {
+  searchParams: {
+    [ key: string ]: string | string[] | undefined
+  };
+}
+
+const ThankYouPage = ({ searchParams }: PageProps) => {
+  const orderId = searchParams.orderId;
+
   return (
     <main className="relative lg:min-h-full">
       <div className="hidden md:block h-80 overflow-hidden lg:absolute lg:h-full lg:w-1/2 lg:pr-4 xl:pr-12">
