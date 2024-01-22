@@ -2,6 +2,7 @@ import { getServerSideUser } from "@/lib/payload-utils";
 import Image from "next/image";
 import { cookies } from "next/headers";
 import { getPayloadClient } from "@/get-payload";
+import { notFound, redirect } from "next/navigation";
 
 interface PageProps {
   searchParams: {
@@ -29,6 +30,14 @@ const ThankYouPage = async ({ searchParams }: PageProps) => {
   });
 
   const [ order ] = orders;
+
+  if (!order) return notFound();
+
+  const orderUserId = typeof order.user === "string" ? order.user : order.user.id;
+
+  if (orderUserId !== user?.id) {
+    return redirect(`/sign-in?origin=thank-you?orderId=${orderId}`)
+  }
 
   return (
     <main className="relative lg:min-h-full">
