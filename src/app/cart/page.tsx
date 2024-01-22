@@ -23,6 +23,8 @@ const Page = () => {
     }
   });
 
+  const productIds = items.map(({ product }) => product.id)
+
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
   useEffect(() => {
@@ -200,6 +202,8 @@ const Page = () => {
 
             <div className="mt-6">
               <Button
+                disabled={items.length === 0 || isLoading}
+                onClick={() => createCheckoutSession({ productIds })}
                 className="w-full"
                 size="lg"
               >
