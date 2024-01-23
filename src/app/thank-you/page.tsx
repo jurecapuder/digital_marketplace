@@ -157,8 +157,18 @@ const ThankYouPage = async ({ searchParams }: PageProps) => {
                   Subtotal
                 </p>
 
-                <p>
+                <p className="text-gray-900">
                   {formatPrice(orderTotal)}
+                </p>
+              </div>
+
+              <div className="flex justify-between">
+                <p>
+                  Transaction fee
+                </p>
+
+                <p className="text-gray-900">
+                  {formatPrice(1)}
                 </p>
               </div>
             </div>
