@@ -81,6 +81,16 @@ const ThankYouPage = async ({ searchParams }: PageProps) => {
               we&apos;ll send you confirmation very soon!
             </p>
           )}
+
+          <div className="mt-16 text-sm font-medium">
+            <div className="text-muted-foreground">
+              Order nr.
+            </div>
+
+            <div className="mt-2 text-gray-900">
+              {order.id}
+            </div>
+          </div>
         </div>
       </div>
     </main>
