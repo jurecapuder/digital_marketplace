@@ -125,6 +125,16 @@ const ThankYouPage = async ({ searchParams }: PageProps) => {
                         </p>
                       </div>
                     </div>
+
+                    {order._isPaid ? (
+                      <a
+                        href={downloadUrl}
+                        download={product.name}
+                        className="text-blue-600 hover:underline underline-offset-2"
+                      >
+                        Download asset
+                      </a>
+                    ) : null}
                   </li>
                 )
               })}
