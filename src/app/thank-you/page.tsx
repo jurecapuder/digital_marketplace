@@ -3,6 +3,8 @@ import Image from "next/image";
 import { cookies } from "next/headers";
 import { getPayloadClient } from "@/get-payload";
 import { notFound, redirect } from "next/navigation";
+import { Product, ProductFile } from "@/payload-types";
+import { PRODUCT_CATEGORIES } from "@/config";
 
 interface PageProps {
   searchParams: {
@@ -90,6 +92,31 @@ const ThankYouPage = async ({ searchParams }: PageProps) => {
             <div className="mt-2 text-gray-900">
               {order.id}
             </div>
+
+            <ul className="mt-6 divide-y divide-gray-200 border-t border-gray-200 text-sm font-medium text-muted-foreground">
+              {(order.products as Product[]).map((product) => {
+                const label = PRODUCT_CATEGORIES.find((c) => c.value === product.category)?.label;
+
+                const downloadUrl = (product.product_files as ProductFile).url as string;
+
+                const { image } = product.images[0];
+
+                return (
+                  <li key={product.id} className="flex space-x-6 py-6">
+                    <div className="relative h-24 w-24">
+                      {typeof image !== "string" && image.url ? (
+                        <Image
+                          src={image.url}
+                          alt={`${product.name} image`}
+                          className="flex-none rounded-md bg-gray-100 object-cover object-center"
+                          fill
+                        />
+                      ) : null}
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
         </div>
       </div>
