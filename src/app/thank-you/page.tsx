@@ -5,6 +5,7 @@ import { getPayloadClient } from "@/get-payload";
 import { notFound, redirect } from "next/navigation";
 import { Product, ProductFile } from "@/payload-types";
 import { PRODUCT_CATEGORIES } from "@/config";
+import { formatPrice } from "@/lib/utils";
 
 interface PageProps {
   searchParams: {
@@ -135,6 +136,10 @@ const ThankYouPage = async ({ searchParams }: PageProps) => {
                         </a>
                       ) : null}
                     </div>
+
+                    <p className="flex-none font-medium text-gray-900">
+                      {formatPrice(product.price)}
+                    </p>
                   </li>
                 )
               })}
