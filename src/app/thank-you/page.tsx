@@ -113,6 +113,18 @@ const ThankYouPage = async ({ searchParams }: PageProps) => {
                         />
                       ) : null}
                     </div>
+
+                    <div className="flex-auto flex flex-col justify-between">
+                      <div className="space-y-1">
+                        <h3 className="text-gray-900">
+                          {product.name}
+                        </h3>
+
+                        <p className="my-1">
+                          Category: {label}
+                        </p>
+                      </div>
+                    </div>
                   </li>
                 )
               })}
