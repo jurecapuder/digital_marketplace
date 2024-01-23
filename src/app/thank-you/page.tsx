@@ -42,6 +42,12 @@ const ThankYouPage = async ({ searchParams }: PageProps) => {
     return redirect(`/sign-in?origin=thank-you?orderId=${orderId}`)
   }
 
+  const products = order.products as Product[];
+
+  const orderTotal = products.reduce((total, product) => {
+    return total + product.price;
+  }, 0);
+
   return (
     <main className="relative lg:min-h-full">
       <div className="hidden lg:block h-80 overflow-hidden lg:absolute lg:h-full lg:w-1/2 lg:pr-4 xl:pr-12">
@@ -144,6 +150,18 @@ const ThankYouPage = async ({ searchParams }: PageProps) => {
                 )
               })}
             </ul>
+
+            <div className="space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-muted-foreground">
+              <div className="flex justify-between">
+                <p>
+                  Subtotal
+                </p>
+
+                <p>
+                  {formatPrice(orderTotal)}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
