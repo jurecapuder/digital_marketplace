@@ -7,6 +7,7 @@ import { Product, ProductFile } from "@/payload-types";
 import { PRODUCT_CATEGORIES } from "@/config";
 import { formatPrice } from "@/lib/utils";
 import Link from "next/link";
+import PaymentStatus from "@/components/PaymentStatus";
 
 interface PageProps {
   searchParams: {
@@ -184,6 +185,8 @@ const ThankYouPage = async ({ searchParams }: PageProps) => {
                   </p>
                 </div>
               </div>
+
+              <PaymentStatus />
 
               <div className="mt-16 border-t border-gray-200 py-6 text-right">
                 <Link
