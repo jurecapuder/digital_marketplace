@@ -21,7 +21,7 @@ const PaymentStatus = ({ orderEmail, orderId, isPaid}: PaymentStatusProps) => {
 
   useEffect(() => {
     if (data?.isPaid) router.refresh();
-  })
+  }, [data?.isPaid, router])
 
   return (
     <div className="mt-16 grid grid-cols-2 gap-x-4 text-sm text-gray-600">
