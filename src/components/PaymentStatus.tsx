@@ -1,5 +1,7 @@
 "use client";
 
+import { trpc } from "@/trpc/client";
+
 interface PaymentStatusProps {
   orderEmail: string;
   orderId: string;
@@ -7,6 +9,11 @@ interface PaymentStatusProps {
 }
 
 const PaymentStatus = ({ orderEmail, orderId, isPaid}: PaymentStatusProps) => {
+  const {} = trpc.payment.pollOrderStatus.useQuery({ orderId }, {
+    enabled: isPaid === false,
+    refetchInterval: (data) => (data?.isPaid ? false : 1000)
+  })
+
   return (
     <div className="mt-16 grid grid-cols-2 gap-x-4 text-sm text-gray-600">
       <div>
