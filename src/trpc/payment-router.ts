@@ -4,6 +4,7 @@ import { TRPCError } from "@trpc/server";
 import { getPayloadClient } from "../get-payload";
 import { stripe } from "../lib/stripe";
 import type Stripe from "stripe";
+import { Input } from "@/components/ui/input";
 
 export const paymentRouter = router({
   createSession: privateProcedure
@@ -75,5 +76,8 @@ export const paymentRouter = router({
 
         return { url: null }
       }
+    }),
+    pollOrderStatus: privateProcedure.input(z.object({ orderId: z.string() })).query(async ({ input }) => {
+      const { orderId } = input;
     })
 })
