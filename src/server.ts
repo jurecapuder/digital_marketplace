@@ -6,6 +6,7 @@ import { appRouter } from "./trpc";
 import { inferAsyncReturnType } from "@trpc/server";
 import bodyParser from "body-parser";
 import { IncomingMessage } from "http";
+import { stripeWebhookHandler } from "./webhooks";
 
 const app = express();
 
@@ -25,6 +26,8 @@ const start = async () => {
       req.rawBody = buffer;
     }
   });
+
+  app.post("/api/webhooks/stripe", webhookMiddleware, stripeWebhookHandler)
 
   const payload = await getPayloadClient({
     initOptions: {
