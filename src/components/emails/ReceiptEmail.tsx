@@ -1,15 +1,16 @@
 import { formatPrice } from "../../lib/utils";
 import { Product } from "../../payload-types";
-import { Body, Container, Column, Head, Hr, Html, Img, Link, Preview, Row, Section, Text } from '@react-email/components'
+import { Body, Container, Column, Head, Hr, Html, Img, Link, Preview, Row, Section, Text } from "@react-email/components";
+import format from "date-fns/format";
 
 interface ReceiptEmailProps {
   email: string,
-  data: Date,
-  oderId: string,
+  date: Date,
+  orderId: string,
   products: Product[]
 }
 
-export const ReceiptEmail = ({ email, data, oderId, products }: ReceiptEmailProps) => {
+export const ReceiptEmail = ({ email, date, orderId, products }: ReceiptEmailProps) => {
   const total = products.reduce((acc, curr) => acc + curr.price, 0) + 1;
 
   return (
