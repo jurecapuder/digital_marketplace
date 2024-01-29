@@ -56,6 +56,8 @@ const start = async () => {
     return nextApp.render(req, res, "/cart", parsedUrl.query);
   })
 
+  app.use("/cart", cartRouter);
+
   if (process.env.NEXT_BUILD) {
     app.listen(PORT, async () => {
       payload.logger.info("Next.js is building for production");
