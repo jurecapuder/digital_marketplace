@@ -59,9 +59,7 @@ export const EmailTemplate = ({ actionLabel, buttonText, href }: EmailTemplatePr
   );
 }
 
-export const PrimaryActionEmailHtml = (props: EmailTemplateProps) => {
-  render(<EmailTemplate {...props} />, { pretty: true });
-}
+export const PrimaryActionEmailHtml = (props: EmailTemplateProps) => render(<EmailTemplate {...props} />, { pretty: true });
 
 const main = {
   backgroundColor: "#ffffff",
