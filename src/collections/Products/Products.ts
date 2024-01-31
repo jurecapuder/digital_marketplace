@@ -16,6 +16,26 @@ const syncUser: AfterChangeHook<Product> = async ({ req, doc }) => {
     collection: "users",
     id: req.user.id
   })
+
+  if (fullUser && typeof fullUser === "object") {
+    const { products } = fullUser;
+
+    const allIDs = [
+      ...(products?.map((product) => typeof product === "object" ? product.id : product) || [])
+    ];
+
+    const createdProductIDs = allIDs.filter((id, index) => allIDs.indexOf(id) === index);
+
+    const dataToUpdate = [...createdProductIDs, doc.id];
+
+    await req.payload.update({
+      collection: "users",
+      id: fullUser.id,
+      data: {
+        products: dataToUpdate
+      }
+    })
+  }
 }
 
 export const Products: CollectionConfig = {
