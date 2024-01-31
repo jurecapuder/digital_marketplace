@@ -3,7 +3,6 @@ import { PRODUCT_CATEGORIES } from "../../config";
 import { CollectionConfig } from "payload/types";
 import { Product } from "../../payload-types";
 import { stripe } from "../../lib/stripe";
-import { receiveMessageOnPort } from "worker_threads";
 
 const addUser: BeforeChangeHook<Product> = async ({ req, data }) => {
   const user = req.user;
