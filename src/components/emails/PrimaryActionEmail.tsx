@@ -1,4 +1,4 @@
-import { Body, Button, Container, Head, Hr, Html, Img, Preview, Section, Text } from "@react-email/components";
+import { Body, Button, Container, Head, Hr, Html, Img, Preview, Section, Text, render } from "@react-email/components";
 
 import * as React from "react";
 
@@ -57,6 +57,10 @@ export const EmailTemplate = ({ actionLabel, buttonText, href }: EmailTemplatePr
       </Body>
     </Html>
   );
+}
+
+export const PrimaryActionEmailHtml = (props: EmailTemplateProps) => {
+  render(<EmailTemplate {...props} />, { pretty: true });
 }
 
 const main = {
