@@ -3,6 +3,7 @@ import { PRODUCT_CATEGORIES } from "../../config";
 import { Access, CollectionConfig } from "payload/types";
 import { Product, User } from "../../payload-types";
 import { stripe } from "../../lib/stripe";
+import { access } from "fs";
 
 const addUser: BeforeChangeHook<Product> = async ({ req, data }) => {
   const user = req.user;
@@ -43,6 +44,14 @@ const isAdminOrHasAccess = (): Access => ({ req: { user: _user } }) => {
   if (!user) return false;
 
   if (user.role === "admin") return true;
+
+  const userProductIDs = (user.products || []).reduce<Array<string>>(( acc, product ) => {
+    if (!product) return acc;
+
+    if (typeof product === "string") {
+      acc.push(product);
+    }
+  }, []);
 }
 
 export const Products: CollectionConfig = {
