@@ -70,7 +70,9 @@ export const Products: CollectionConfig = {
     useAsTitle: "name"
   },
   access: {
-    read: isAdminOrHasAccess()
+    read: isAdminOrHasAccess(),
+    update: isAdminOrHasAccess(),
+    delete: isAdminOrHasAccess()
   },
   hooks: {
     afterChange: [syncUser],
