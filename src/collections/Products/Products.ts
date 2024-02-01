@@ -50,8 +50,18 @@ const isAdminOrHasAccess = (): Access => ({ req: { user: _user } }) => {
 
     if (typeof product === "string") {
       acc.push(product);
+    } else {
+      acc.push(product.id);
     }
+
+    return acc;
   }, []);
+
+  return {
+    id: {
+      in: userProductIDs
+    }
+  }
 }
 
 export const Products: CollectionConfig = {
