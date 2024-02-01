@@ -44,6 +44,7 @@ export const Products: CollectionConfig = {
   },
   access: {},
   hooks: {
+    afterChange: [syncUser],
     beforeChange: [addUser, async (args) => {
       if (args.operation === "create") {
         const data = args.data as Product;
