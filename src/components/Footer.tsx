@@ -27,6 +27,12 @@ const Footer = () => {
                 <div className="absolute inset-0 overflow-hidden rounded-lg">
                   <div aria-hidden="true" className="absolute bg-zinc-50 inset-0 bg-gradient-to-br bg-opacity-90" />
                 </div>
+
+                <div className="text-center relative mx-auto max-w-sm">
+                  <h3 className="font-semibold text-gray-900">
+                    Become a seller
+                  </h3>
+                </div>
               </div>
             </div>
           )}
