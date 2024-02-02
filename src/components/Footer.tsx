@@ -20,6 +20,16 @@ const Footer = () => {
               </div>
             </div>
           )}
+
+          {pathsToMinimize.includes(pathname) ? null : (
+            <div>
+              <div className="relative flex items-center px-6 py-6 sm:py-8 lg:mt-0">
+                <div className="absolute inset-0 overflow-hidden rounded-lg">
+                  <div aria-hidden="true" className="absolute bg-zinc-50 inset-0 bg-gradient-to-br bg-opacity-90" />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </MaxWidthWrapper>
     </footer>
