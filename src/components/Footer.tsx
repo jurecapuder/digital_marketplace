@@ -1,3 +1,5 @@
+"use client";
+
 import { usePathname } from "next/navigation";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { Icons } from "./Icons";
@@ -12,8 +14,10 @@ const Footer = () => {
       <MaxWidthWrapper>
         <div className="border-t border-gray-200">
           {pathsToMinimize.includes(pathname) ? null : (
-            <div className="flex justify-center">
-              <Icons.logo className="h-12 w-auto" />
+            <div className="pb-8 pt-16">
+              <div className="flex justify-center">
+                <Icons.logo className="h-12 w-auto" />
+              </div>
             </div>
           )}
         </div>
