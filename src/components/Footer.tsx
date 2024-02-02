@@ -41,7 +41,7 @@ const Footer = () => {
                       href="/sign-in?as=seller"
                       className="whitespace-nowrap font-medium text-black hover:text-zinc-900"
                     >
-                      Get started
+                      Get started &rarr;
                     </Link>
                   </p>
                 </div>
