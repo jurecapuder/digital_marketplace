@@ -1,7 +1,6 @@
-import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { cn } from "@/lib/utils"
+import { cn, constructMetadata } from "@/lib/utils"
 import NavBar from "@/components/NavBar"
 import Providers from "@/components/Providers"
 import { Toaster } from "sonner"
@@ -9,10 +8,7 @@ import Footer from "@/components/Footer"
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: 'DigitalHippo',
-  description: 'Your market place for high-quality digital assets.',
-}
+export const metadata = constructMetadata();
 
 export default function RootLayout({
   children,
